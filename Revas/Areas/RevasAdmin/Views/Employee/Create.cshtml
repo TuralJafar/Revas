@@ -1,0 +1,76 @@
+﻿@using Revas.Models;
+@model Employee
+<div class="container-fluid page-body-wrapper">
+
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Create Employee</h4>
+                            <form class="forms-sample" method="post">
+                                <div class="form-group">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Name">
+                                    <span class="text-danger" asp-validation-for="Name"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Description">Description</label>
+                                    <input asp-for="Description" class="form-control" placeholder="Description">
+                                    <span class="text-danger" asp-validation-for="Description"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Image">Image</label>
+                                    <input asp-for="Image" class="form-control" placeholder="Image">
+                                    <span class="text-danger" asp-validation-for="Image"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Facebook">Facebook</label>
+                                    <input asp-for="Facebook" class="form-control" placeholder="Facebook">
+                                    <span class="text-danger" asp-validation-for="Facebook"></span>
+                                </div> <div class="form-group">
+                                    <label asp-for="LinkEdin">LinkEdin</label>
+                                    <input asp-for="LinkEdin" class="form-control" placeholder="LinkEdin">
+                                    <span class="text-danger" asp-validation-for="LinkEdin"></span>
+                                </div> <div class="form-group">
+                                    <label asp-for="Google">Google</label>
+                                    <input asp-for="Google" class="form-control" placeholder="Google">
+                                    <span class="text-danger" asp-validation-for="Google"></span>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label asp-for="PositionId">Position</label>
+
+
+                                    @* <select asp-for="PositionId" class="form-control">
+                                    <option disabled selected>Select Position please</option>
+                                    @foreach (Position position in ViewBag.Positions)
+                                    {
+
+                                    <option value="@position.Id"> @position.Name </option>
+                                    }
+                                    </select>*@
+                                    <select asp-for="PositionId" class="form-control" asp-items="new SelectList(ViewBag.Positions,nameof(Position.Id),nameof(Position.Name))">
+                                        <option disabled selected>Select Position please</option>
+                                    </select>
+
+                                    <span class="text-danger" asp-validation-for="PositionId"></span>
+                                </div>
+                                <button type="submit" class="btn btn-primary me-2">Create</button>
+                                <a asp-action="index" asp-controller="category" class="btn btn-light">Cancel</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>
